@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign Up | Twin Travellers</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="./assets/logo.jpg" />
+
+  <!-- Main stylesheet (make sure style.css is at public/style.css) -->
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css" />
+</head>
+
+<body class="register-body">
+  <!-- Navbar -->
+  <nav>
+    <a href="./index.html"><img src="./assets/logo.jpg" class="logo" alt="Twin Travellers Logo" title="Twin Travellers" /></a>
+    <ul class="navbar">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#locations">Locations</a></li>
+      <li><a href="./index.html#package">Packages</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Registration -->
+  <section class="registration">
+    <div class="register-form">
+      <h1>Create <span>Account</span></h1>
+
+      <!-- NOTE: inputs include both id and name to ensure JS and form submissions work -->
+      <form id="signupForm" novalidate>
+        <input type="email" id="email" name="email" placeholder="Enter your email" required />
+        <input type="password" id="password" name="password" placeholder="Enter your password" minlength="6" required />
+        <button type="submit" class="submitbtn">Sign Up</button>
+      </form>
+
+      <h4>Already have an account? <a href="./login.html">Login here</a></h4>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="foot">
+      <div class="footer-content">
+        <div class="footlinks">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./register.html">Register</a></li>
+            <li><a href="./contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+  
+        <div class="footlinks">
+          <h4>Connect</h4>
+          <div class="social">
+            <a href="https://www.instagram.com/twin_travellers__?igsh=MTZxazdqbmVqa3B0ag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <i class="bx bxl-instagram" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/winmaniraja-b-0a573b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i class="bx bxl-linkedin" aria-hidden="true"></i>
+            </a>
+            <a href="https://www.youtube.com/@twin_travellerss" target="_blank" rel="noopener noreferrer" aria-label="YouTube">
+              <i class="bx bxl-youtube" aria-hidden="true"></i>
+            </a>
+            <a href="https://github.com/winu-git" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i class="bx bxl-github" aria-hidden="true"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <div class="end">
+      <p>Copyright © 2025 Twin Travellers. All Rights Reserved.</p>
+    </div>
+  </footer>
+  
+
+  <!-- Signup Script: uses getElementById (safer than form.email) -->
+  <script>
+    (function () {
+      const form = document.getElementById('signupForm');
+      const emailInput = document.getElementById('email');
+      const passwordInput = document.getElementById('password');
+
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const email = (emailInput.value || '').trim();
+        const password = (passwordInput.value || '').trim();
+
+        if (!email || !password) {
+          alert('Please fill in both email and password.');
+          return;
+        }
+
+        try {
+          const res = await fetch('/api/auth/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+          });
+
+          // handle possible non-JSON responses gracefully
+          let data = {};
+          try { data = await res.json(); } catch (err) { data = {}; }
+
+          if (res.status === 201) {
+            alert('Signup successful! Please check your email for confirmation.');
+            window.location.href = './index.html';
+          } else {
+            alert(data.message || 'Signup failed. Please try again.');
+          }
+        } catch (err) {
+          console.error('Signup error', err);
+          alert('An error occurred. Please try again later.');
+        }
+      });
+
+    })();
+  </script>
+</body>
+</html>

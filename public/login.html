@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | Twin Travellers</title>
+  <link rel="icon" href="./assets/logo.jpg" />
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@200;300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body class="register-body">
+  <nav>
+    <a href="/"><img src="./assets/logo.jpg" class="logo" alt="Twin Travellers Logo" title="Twin Travellers" /></a>
+
+    <ul class="navbar">
+      <li><a href="./index.html">Home</a></li>
+      <li><a href="./index.html#locations">Locations</a></li>
+      <li><a href="./index.html#package">Packages</a></li>
+      <li><a href="./contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <section class="registration">
+    <div class="register-form">
+      <h1>Login <span>Now</span></h1>
+
+      <form id="loginForm">
+        <input
+          id="email"
+          name="email"
+          type="email"
+          placeholder="Enter your email"
+          required
+        />
+        <input
+          id="password"
+          name="password"
+          type="password"
+          placeholder="Enter your password"
+          required
+        />
+
+        <input type="submit" value="Login" class="submitbtn" />
+      </form>
+
+      <h4>Don't have an account? <a href="./register.html">Sign Up</a></h4>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('loginForm');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = form.email.value.trim();
+      const password = form.password.value.trim();
+
+      if (!email || !password) {
+        alert('Please fill out all fields.');
+        return;
+      }
+
+      try {
+        const res = await fetch('/api/auth/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, password }),
+        });
+
+        const data = await res.json().catch(() => ({}));
+
+        if (res.ok) {
+          localStorage.setItem('authToken', data.token);
+          alert('Login successful!');
+          window.location.href = '/';
+        } else {
+          alert(data.message || 'Login failed. Please check your credentials.');
+        }
+      } catch (err) {
+        console.error('Error:', err);
+        alert('An error occurred. Please try again later.');
+      }
+    });
+  </script>
+</body>
+</html>

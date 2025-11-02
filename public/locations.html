@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Travel Destinations</title>
+
+  <!-- Favicon -->
+  <link rel="icon" href="/assets/logo.jpg" />
+
+  <!-- Main stylesheet -->
+  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Paytone+One&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Boxicons -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
+  />
+
+  <style>
+    /* Extra styling for Book Now button placement */
+    .location-detail {
+      margin-bottom: 60px;
+      text-align: center;
+    }
+
+    .location-detail img {
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    .book-btn {
+      display: inline-block;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #0ea5a5, #075f5f);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .book-btn:hover {
+      background: linear-gradient(90deg, #11bfbf, #098080);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body class="location-body">
+
+  <!-- Navigation -->
+  <nav>
+    <a href="/"><img src="/assets/logo.jpg" class="logo" alt="Twin Travellers Logo" title="Twin Travellers" /></a>
+    <ul class="navbar">
+      <li><a href="/index.html">Home</a></li>
+      <li><a href="/index.html#locations">Locations</a></li>
+      <li><a href="/index.html#package">Packages</a></li>
+      <li><a href="/contact.html">Contact Us</a></li>
+    </ul>
+  </nav>
+
+  <!-- Locations Section -->
+  <section class="location-section">
+    <div class="location-heading">
+      <h1>Discover The <span>Beautiful World</span></h1>
+    </div>
+
+    <!-- Kashmir -->
+    <div class="location-detail" id="kashmir">
+      <h1>Kashmir</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+      </div>
+      <p>Heaven on Earth Kashmir is one of the most beautiful travel destinations to visit in North India. Nowhere in India will you behold such scenic landscapes, icy glaciers, pristine lakes, and lofty mountains as beautiful as Kashmir. Serenity and tranquility redefine themselves here. Be it summer, winter, or monsoon, every season has its own charm. The numerous wonders of nature, culture, cuisine, and history elevate your travel experience in Incredible India.</p>
+      <div class="location-img">
+        <img src="/assets/India.jpg" alt="Scenic Kashmir landscape with Dal Lake" />
+      </div>
+      <a href="/booking.html?package=Kashmir" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Istanbul -->
+    <div class="location-detail" id="istanbul">
+      <h1>Istanbul</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star-half"></i>
+      </div>
+      <p>Istanbul offers unique historical and cultural riches, hosting many civilizations across two continents. Admired for its charming nature and attractive atmosphere, the city is also the symbol of dynamic and modern life. With a multicultural texture and lively spirit, Istanbul melts the past and future into one timeless experience.</p>
+      <div class="location-img">
+        <img src="/assets/Turkey.jpg" alt="Panoramic view of Istanbul skyline" />
+      </div>
+      <a href="/booking.html?package=Istanbul" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Paris -->
+    <div class="location-detail" id="paris">
+      <h1>Paris</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star-half"></i>
+      </div>
+      <p>Paris is a diverse and sophisticated city known for its art, culture, and cuisine. Beyond the Eiffel Tower, it’s filled with gorgeous landmarks, monuments, and boulevards lined with charming cafés. French cuisine is world-famous, and Paris is the perfect place to experience it. Every corner showcases stunning architecture and beauty that define romance and elegance.</p>
+      <div class="location-img">
+        <img src="/assets/Paris.jpg" alt="Eiffel Tower view in Paris at sunset" />
+      </div>
+      <a href="/booking.html?package=Paris" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Bali -->
+    <div class="location-detail" id="bali">
+      <h1>Bali</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star-half"></i>
+      </div>
+      <p>Bali’s beauty runs deeper than its beaches. Its natural wonders, culture, and hospitality make it a top destination. From luxurious resorts to budget-friendly hostels, Bali offers something for everyone. Infinity pools and private villas add to its charm, making it a paradise for travelers.</p>
+      <div class="location-img">
+        <img src="/assets/Indonesia.jpg" alt="Beautiful beach resort in Bali" />
+      </div>
+      <a href="/booking.html?package=Bali" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Dubai -->
+    <div class="location-detail" id="dubai">
+      <h1>Dubai</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+      </div>
+      <p>Dubai is an ideal holiday destination for families, offering theme parks, beaches, and more. The iconic Burj Khalifa, the world’s tallest building, and the Aquaventure Water Park at Atlantis are must-visits. Jumeirah Beach Residence is a lively beachfront lined with restaurants, cafés, and shops.</p>
+      <div class="location-img">
+        <img src="/assets/Dubai.jpg" alt="Burj Khalifa and Dubai skyline at night" />
+      </div>
+      <a href="/booking.html?package=Dubai" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Geneva -->
+    <div class="location-detail" id="geneva">
+      <h1>Geneva</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star-half"></i>
+      </div>
+      <p>Geneva is a charming city full of natural beauty and cultural depth. Nestled beside a lake and surrounded by mountains, it’s home to many international organizations like the UN. Geneva’s tranquil atmosphere and global culture make it a favorite among travelers.</p>
+      <div class="location-img">
+        <img src="/assets/Switzerland.jpg" alt="Lake Geneva with Alps in the background" />
+      </div>
+      <a href="/booking.html?package=Geneva" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Port Blair -->
+    <div class="location-detail" id="port-blair">
+      <h1>Port Blair</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star-half"></i>
+      </div>
+      <p>Port Blair is a serene island city with clean beaches, colonial history, and coral reefs. Visit museums, libraries, and calm lagoons that reveal the island’s beauty. It’s a peaceful destination for those who love both history and nature.</p>
+      <div class="location-img">
+        <img src="/assets/Andaman-Nicobar.jpg" alt="Aerial view of Port Blair beach and islands" />
+      </div>
+      <a href="/booking.html?package=Port%20Blair" class="book-btn">Book Now</a>
+    </div>
+
+    <!-- Rome -->
+    <div class="location-detail" id="rome">
+      <h1>Rome</h1>
+      <div class="stars">
+        <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i><i class="bx bxs-star"></i>
+      </div>
+      <p>Rome, the Eternal City, is filled with ancient wonders, art, and cuisine. Explore the Colosseum, Vatican, and cobbled streets that hold millennia of history. It’s a city that blends the past with modern Italian charm.</p>
+      <div class="location-img">
+        <img src="/assets/Italy.jpg" alt="Colosseum in Rome during sunset" />
+      </div>
+      <a href="/booking.html?package=Rome" class="book-btn">Book Now</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="foot">
+      <div class="footer-content">
+        <div class="footlinks">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="/register.html">Register</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footlinks">
+          <h4>Connect</h4>
+          <div class="social">
+            <a href="https://www.instagram.com/twin_travellers__?igsh=MTZxazdqbmVqa3B0ag==" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="bx bxl-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/winmaniraja-b-0a573b269" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+            <a href="https://www.youtube.com/@twin_travellerss" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="bx bxl-youtube"></i></a>
+            <a href="https://github.com/winu-git" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="end">
+      <p>Copyright © 2025 Twin Travellers. All Rights Reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

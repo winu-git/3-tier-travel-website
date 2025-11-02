@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Twin Travellers — Book Package</title>
+
+  <!-- Fonts & Global Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Paytone+One&display=swap" rel="stylesheet">
+  <link href="style.css" rel="stylesheet" />
+
+  <style>
+    body.booking-body {
+      background-color: #101010;
+      color: #e6ffff;
+      font-family: "Poppins", sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+    }
+  
+    .booking-container {
+      max-width: 820px;
+      margin: 120px auto;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 28px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+    }
+  
+    .booking-container h2 {
+      font-family: "Paytone One", sans-serif;
+      margin-bottom: 8px;
+      color: #fff;
+      text-align: center;
+    }
+  
+    .form-row {
+      display: flex;
+      gap: 16px;
+    }
+  
+    .form-col {
+      flex: 1;
+      min-width: 160px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+  
+    label {
+      color: #cfeeee;
+      font-size: 0.9rem;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="date"],
+    textarea,
+    select {
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.05);
+      color: #fff;
+      outline: none;
+      font-family: "Poppins", sans-serif;
+      transition: 0.3s ease;
+    }
+  
+    /* ✅ Custom select styling with arrow */
+    select {
+      cursor: pointer;
+      background-image:
+        linear-gradient(90deg, #0ea5a5, #075f5f),
+        url("data:image/svg+xml;charset=UTF-8,<svg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 24 24'><path d='M7 10l5 5 5-5z'/></svg>");
+      background-repeat: no-repeat, no-repeat;
+      background-position: right 12px center, 0 0;
+      background-size: 16px auto, 100%;
+      border: none;
+      font-weight: 500;
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      padding-right: 40px; /* space for arrow */
+    }
+  
+    select:hover {
+      background-position: right 12px center, right center;
+      transform: scale(1.02);
+    }
+  
+    option {
+      background-color: #0f3e3e;
+      color: #fff;
+      font-weight: 500;
+    }
+  
+    textarea {
+      min-height: 100px;
+      resize: vertical;
+    }
+  
+    .btn {
+      background: linear-gradient(90deg, #0ea5a5, #075f5f);
+      color: #fff;
+      padding: 12px 18px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-family: "Poppins", sans-serif;
+      transition: 0.3s ease;
+    }
+  
+    .btn:hover {
+      background: linear-gradient(90deg, #11bfbf, #098080);
+    }
+  
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  
+    .message {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      color: #042;
+      background: #dff6f6;
+      display: none;
+    }
+  
+    .error {
+      color: #610000;
+      background: #ffdede;
+      display: none;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  
+    @media (max-width: 720px) {
+      .form-row {
+        flex-direction: column;
+      }
+    }
+  </style>  
+</head>
+
+<body class="booking-body">
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html"><img src="/assets/logo.jpg" class="logo" alt="Twin Travellers Logo" /></a>
+    <ul class="navbar">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="locations.html">Locations</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+    </ul>
+  </nav>
+
+  <!-- Booking Form -->
+  <main class="container booking-container">
+    <h2>Book Package</h2>
+    <p style="color:#cfeeee; margin-bottom:18px; text-align:center;">
+      Fill the form below to confirm your booking. A confirmation email will be sent to
+      <strong>winmani9232@gmail.com</strong>.
+    </p>
+
+    <form id="bookingForm" autocomplete="off" novalidate>
+      <div class="form-row">
+        <div class="form-col">
+          <label for="name">Full Name</label>
+          <input id="name" name="name" type="text" placeholder="John Doe" required />
+        </div>
+        <div class="form-col">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-col">
+          <label for="travelDate">Travel Date</label>
+          <input id="travelDate" name="travelDate" type="date" required />
+        </div>
+        <div class="form-col">
+          <label for="destination">Destination</label>
+          <input id="destination" name="destination" type="text" required />
+        </div>
+      </div>
+
+      <div class="form-col">
+        <label for="packageSelect">Package</label>
+        <select id="packageSelect" name="packageName" required>
+          <option value="">— choose a package —</option>
+          <option>Bronze Package — ₹10,000</option>
+          <option>Silver Package — ₹20,000</option>
+          <option>Gold Package — ₹30,000</option>
+          <option>Platinum Package — ₹50,000</option>
+        </select>
+      </div>
+
+      <div class="form-col">
+        <label for="notes">Special Requirements / Notes</label>
+        <textarea id="notes" name="notes" placeholder="Dietary requirements, accessibility needs, etc."></textarea>
+      </div>
+
+      <div style="display:flex; gap:12px; align-items:center; margin-top:14px;">
+        <button id="submitBtn" class="btn" type="submit">Confirm Booking</button>
+        <div id="spinner" style="display:none; color:#fff;">Processing...</div>
+      </div>
+
+      <div id="successMsg" class="message"></div>
+      <div id="errorMsg" class="error"></div>
+    </form>
+
+    <p style="color:#9fdcdc; margin-top:18px; font-size:0.9rem; text-align:center;">
+      Tip: you can pre-select a package by linking here:
+      <code>booking.html?package=Gold</code> or
+      <code>?package=Silver</code>.
+    </p>
+  </main>
+
+  <!-- JS logic -->
+  <script>
+    (function setMinDate(){
+      const inpt = document.getElementById('travelDate');
+      const today = new Date();
+      const y = today.getFullYear();
+      const m = String(today.getMonth()+1).padStart(2,'0');
+      const d = String(today.getDate()).padStart(2,'0');
+      if (inpt) inpt.min = `${y}-${m}-${d}`;
+    })();
+
+    (function prefillFromQuery(){
+      try {
+        const qs = new URLSearchParams(location.search);
+        const pkg = qs.get('package') || qs.get('pkg');
+        if(pkg){
+          const sel = document.getElementById('packageSelect');
+          let matched = false;
+          if (sel && sel.options) {
+            Array.from(sel.options).forEach(opt => {
+              if(opt.value && opt.value.toLowerCase().includes(pkg.toLowerCase())){
+                sel.value = opt.value;
+                matched = true;
+              }
+            });
+          }
+          if(!matched){
+            const dest = document.getElementById('destination');
+            if (dest) dest.value = pkg;
+          }
+        }
+      } catch (e) {
+        console.warn('prefillFromQuery error', e);
+      }
+    })();
+
+    document.getElementById('bookingForm').addEventListener('submit', async function(e){
+      e.preventDefault();
+      const submitBtn = document.getElementById('submitBtn');
+      const spinner = document.getElementById('spinner');
+      const success = document.getElementById('successMsg');
+      const error = document.getElementById('errorMsg');
+      if(success) success.style.display = 'none';
+      if(error) error.style.display = 'none';
+
+      const payload = {
+        name: (document.getElementById('name')?.value || '').trim(),
+        email: (document.getElementById('email')?.value || '').trim(),
+        travelDate: (document.getElementById('travelDate')?.value || '').trim(),
+        destination: (document.getElementById('destination')?.value || '').trim(),
+        packageName: (document.getElementById('packageSelect')?.value || '').trim(),
+        notes: (document.getElementById('notes')?.value || '').trim()
+      };
+
+      if(!payload.name || !payload.email || !payload.travelDate || !payload.destination || !payload.packageName){
+        if(error) {
+          error.textContent = 'Please fill all required fields (name, email, travel date, destination, package).';
+          error.style.display = 'block';
+        }
+        return;
+      }
+
+      try {
+        if(submitBtn) submitBtn.disabled = true;
+        if(spinner) spinner.style.display = 'inline-block';
+
+        const resp = await fetch('/api/booking', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        let data = null;
+        try { data = await resp.json(); } catch { data = null; }
+
+        if(resp.ok){
+          if(success) {
+            success.textContent = 'Booking received! A confirmation email has been sent to the site admin. Thank you — we will contact you soon.';
+            success.style.display = 'block';
+          }
+          document.getElementById('bookingForm').reset();
+        } else {
+          if(error) {
+            error.textContent = (data && data.message) ? data.message : 'Failed to submit booking. Try again later.';
+            error.style.display = 'block';
+          }
+        }
+      } catch (err){
+        console.error(err);
+        if(error){
+          error.textContent = 'Network error. Please check your connection and try again.';
+          error.style.display = 'block';
+        }
+      } finally {
+        if(submitBtn) submitBtn.disabled = false;
+        if(spinner) spinner.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>
