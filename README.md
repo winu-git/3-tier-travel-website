@@ -105,6 +105,6 @@ Booking data optionally stored in RDS (future enhancement).
 🧑‍💻 Author:
 WinmaniRaja 
 
-🌐 LinkedIn = https://www.linkedin.com/in/winmaniraja-b-0a573b269 
+🌐 LinkedIn = https://www.linkedin.com/in/winmaniraja
 💻 GitHub   = https://github.com/winu-git/
 Portfolio   = https://winu-git.github.io/portfolio/
